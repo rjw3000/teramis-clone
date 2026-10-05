@@ -1,0 +1,8 @@
+{
+  "name": "termamis-awesome",
+  "private": true,
+  "scripts": {
+    "build": "rm -rf dist && mkdir -p dist && cp -R public/. dist && cp public/brief.html dist/brief.html && mkdir -p dist/brief && cp public/brief.html dist/brief/index.html",
+    "typecheck": "node -e \"const fs=require('fs'); ['public/index.html','public/brief.html'].forEach(f=>{const h=fs.readFileSync(f,'utf8'); if(!/<h1[\\s>]/.test(h)) throw new Error('missing h1 '+f); if(!/Chapter 1 of 3/.test(fs.readFileSync('public/index.html','utf8'))) throw new Error('chapter label'); console.log(f+' ok')})\""
+  }
+}
