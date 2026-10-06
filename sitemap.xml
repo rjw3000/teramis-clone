@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://termamis.awesome/</loc></url>
+  <url><loc>https://termamis.awesome/teramis-blog</loc></url>
+  <url><loc>https://termamis.awesome/cui-discovery-readiness-assessment-teramis</loc></url>
+  <url><loc>https://termamis.awesome/eula</loc></url>
+  <url><loc>https://termamis.awesome/talk-to-us-about-cui</loc></url>
+  <url><loc>https://termamis.awesome/who-we-help</loc></url>
+  <url><loc>https://termamis.awesome/contact-us</loc></url>
+  <url><loc>https://termamis.awesome/platform</loc></url>
+  <url><loc>https://termamis.awesome/platform/ongoing-cui-monitoring</loc></url>
+  <url><loc>https://termamis.awesome/platform/deployment-and-data-sources</loc></url>
+  <url><loc>https://termamis.awesome/platform/cui-discovery</loc></url>
+  <url><loc>https://termamis.awesome/platform/evidence-validation</loc></url>
+  <url><loc>https://termamis.awesome/platform/remediation</loc></url>
+  <url><loc>https://termamis.awesome/partners</loc></url>
+  <url><loc>https://termamis.awesome/partners/who-we-partner-with</loc></url>
+  <url><loc>https://termamis.awesome/partners/partner-resources</loc></url>
+  <url><loc>https://termamis.awesome/partners/become-a-partner</loc></url>
+  <url><loc>https://termamis.awesome/partners/partner-program</loc></url>
+  <url><loc>https://termamis.awesome/resources</loc></url>
+  <url><loc>https://termamis.awesome/resources/videos-webinars</loc></url>
+  <url><loc>https://termamis.awesome/resources/library</loc></url>
+  <url><loc>https://termamis.awesome/resources/faqs</loc></url>
   <url><loc>https://termamis.awesome/brief</loc></url>
+  <url><loc>https://termamis.awesome/privacy-policy</loc></url>
+  <url><loc>https://termamis.awesome/company</loc></url>
+  <url><loc>https://termamis.awesome/company/how-teramis-works</loc></url>
+  <url><loc>https://termamis.awesome/company/about</loc></url>
+  <url><loc>https://termamis.awesome/company/careers</loc></url>
+  <url><loc>https://termamis.awesome/company/why-teramis</loc></url>
+  <url><loc>https://termamis.awesome/use-cases</loc></url>
+  <url><loc>https://termamis.awesome/solutions</loc></url>
+  <url><loc>https://termamis.awesome/solutions/government-agencies</loc></url>
+  <url><loc>https://termamis.awesome/solutions/cui-remediation-spillage-monitoring</loc></url>
+  <url><loc>https://termamis.awesome/solutions/cui-boundary-validation</loc></url>
+  <url><loc>https://termamis.awesome/solutions/cmmc-scoping</loc></url>
+  <url><loc>https://termamis.awesome/solutions/post-incident-cui-scoping-and-discovery-teramis</loc></url>
+  <url><loc>https://termamis.awesome/solutions/supply-chain-ma</loc></url>
+  <url><loc>https://termamis.awesome/solutions/by-organization/enterprise</loc></url>
+  <url><loc>https://termamis.awesome/solutions/by-organization/compliance-advisors</loc></url>
+  <url><loc>https://termamis.awesome/solutions/by-organization/small-business</loc></url>
+  <url><loc>https://termamis.awesome/solutions/migration-support</loc></url>
+  <url><loc>https://termamis.awesome/request-a-demo</loc></url>
 </urlset>
