@@ -19,7 +19,7 @@ const stories = [
   {
     name: "FutureFeed",
     logo: {
-      src: "/assets/partners/futurefeed.svg",
+      src: "/assets/partners/futurefeed-color.png",
       width: 337,
       height: 55,
       style: "futurefeed",
