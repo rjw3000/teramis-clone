@@ -16,6 +16,7 @@ export function LeadForm({ kind = "demo" }: { kind?: FormKind }) {
     if (!container) return;
     let script: HTMLScriptElement | undefined;
     let timeout: ReturnType<typeof setTimeout> | undefined;
+    let formResize: ResizeObserver | undefined;
     let disposed = false;
     const observer = new MutationObserver(() => {
       if (container.querySelector("form, iframe")) {
@@ -46,6 +47,29 @@ export function LeadForm({ kind = "demo" }: { kind?: FormKind }) {
             formId: config.id,
             region: "na2",
             target: "#" + id,
+            onFormReady: (form: HTMLFormElement | { 0?: HTMLFormElement }) => {
+              if (disposed) return;
+              const element = "ownerDocument" in form ? form : form[0];
+              const doc = element?.ownerDocument;
+              if (!doc) return;
+              formResize?.disconnect();
+              const theme = doc.createElement("link");
+              theme.rel = "stylesheet";
+              theme.href = new URL("/styles/partner-form.css", window.location.origin).href;
+              theme.dataset.teramisPartnerTheme = "true";
+              doc.head.appendChild(theme);
+              // Legacy frames need to follow the themed field heights and mobile rows.
+              const frame = Array.from(container.querySelectorAll("iframe"))
+                .find((candidate) => candidate.contentDocument === doc);
+              if (frame) {
+                const resize = () => {
+                  if (!disposed) frame.style.height = doc.body.scrollHeight + "px";
+                };
+                theme.onload = resize;
+                formResize = new ResizeObserver(resize);
+                formResize.observe(doc.body);
+              }
+            },
           });
         };
       timeout = setTimeout(() => {
@@ -68,6 +92,7 @@ export function LeadForm({ kind = "demo" }: { kind?: FormKind }) {
       disposed = true;
       visibility.disconnect();
       observer.disconnect();
+      formResize?.disconnect();
       clearTimeout(timeout);
       script?.remove();
       container.replaceChildren();

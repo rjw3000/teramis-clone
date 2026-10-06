@@ -22,7 +22,7 @@ To refresh public articles, run python scripts/import-articles.py, then node scr
 
 ## Forms
 
-Demo, assessment, and contact use the original public HubSpot form IDs through the supported developer embed, styled with the site typography and colors. Partner inquiries retain the published legacy embed in a clean light panel because that form is delivered in an isolated iframe. Original consent, validation, CAPTCHA, and submission handling remain intact. The assessment landing page and its alternate entry point both use the assessment form.
+Demo, assessment, and contact use the original public HubSpot form IDs through the supported developer embed, styled with the site typography and colors. Partner inquiries keep their original legacy embed, with the local `/styles/partner-form.css` theme added through HubSpot's `onFormReady` callback. Its typography, fields, focus indicators, consent text, and button match the other forms. Rows stack on mobile, and a resize observer keeps the frame tall enough for the complete form. Fields and provider-managed submission behavior are unchanged; account-level consent, CAPTCHA, and lead delivery still require provider verification. The assessment landing page and its alternate entry point both use the assessment form.
 
 Browser QA checked rendering and fields without submitting fabricated leads. Relevant vendor documentation: https://developers.hubspot.com/docs/cms/start-building/features/forms/forms
 
