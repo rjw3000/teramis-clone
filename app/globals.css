@@ -4220,7 +4220,7 @@ body {
     [data-form-id="54c8f224-19d1-4295-9822-fbe8ce62c505"],
     [data-form-id="d6cb9355-861f-49e4-a8bf-d6f61b7604be"]
   )
-  .hsfc-Row:first-child:has(.hsfc-RichText):not(:has(input, select, textarea)) {
+  .hsfc-Step__Content > .hsfc-Row:first-child:has(.hsfc-RichText):not(:has(input, select, textarea)) {
   display: none;
 }
 .hs-form-html .hsfc-RichText span {
