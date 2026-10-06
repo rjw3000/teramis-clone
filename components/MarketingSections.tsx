@@ -6,18 +6,36 @@ import { LeadForm } from "./LeadForm";
 const stories = [
   {
     name: "Johnson Controls",
+    logo: {
+      src: "/assets/partners/johnson-controls.svg",
+      width: 175,
+      height: 60,
+      style: "johnson",
+    },
     type: "Customer story",
     title: "A closer look at enterprise CUI discovery",
     href: "https://teramis.us/teramis-blog/from-millions-of-false-positives-to-99-accuracy-how-johnson-controls-solved-its-cui-discovery-challenge",
   },
   {
     name: "FutureFeed",
+    logo: {
+      src: "/assets/partners/futurefeed.svg",
+      width: 337,
+      height: 55,
+      style: "futurefeed",
+    },
     type: "Partner announcement",
     title: "Connecting discovery with compliance workflows",
     href: "https://teramis.us/teramis-blog/post/futurefeed-announces-partnership-with-teramis",
   },
   {
     name: "inDirectIT",
+    logo: {
+      src: "/assets/partners/indirectit.png",
+      width: 600,
+      height: 240,
+      style: "indirectit",
+    },
     type: "Partner announcement",
     title: "Bringing CUI discovery into client compliance work",
     href: "https://teramis.us/teramis-blog/post/teramis-partners-with-indirectit-to-strengthen-cmmc-compliance-with-automated-cui-discovery",
@@ -48,7 +66,16 @@ export function ProofStrip() {
         <div className="proof-links">
           {stories.map((s) => (
             <a key={s.name} href={s.href}>
-              <strong>{s.name}</strong>
+              <div className={"proof-logo-frame proof-logo-" + s.logo.style}>
+                <img
+                  src={s.logo.src}
+                  alt={s.name}
+                  width={s.logo.width}
+                  height={s.logo.height}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
               <span>{s.type} ↗</span>
             </a>
           ))}
