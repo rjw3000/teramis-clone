@@ -1,4 +1,7 @@
-import type { Page } from "../lib/content";
+import Link from "next/link";
+import { findPage, type Page } from "../lib/content";
+
+const titleCase = (s: string) => s.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
 export function PageView({ page }: { page: Page }) {
   const blocks: React.ReactNode[] = [];
@@ -28,16 +31,33 @@ export function PageView({ page }: { page: Page }) {
   });
   flush();
   return (
-    <main id="main">
-      {blocks}
-      {page.form ? (
-        <p>
-          <a className="btn" href={page.source}>Open the live Teramis form</a>
+    <main id="main" tabIndex={-1} className="page">
+      <div className="wrap page-in">
+        <nav aria-label="Breadcrumb" className="eyebrow">
+          <Link href="/">Teramis</Link>
+          {page.slug.map((s, i) => (
+            <span key={s} style={{ display: "contents" }}>
+              <span className="sep">/</span>
+              {i === page.slug.length - 1 ? (
+                <span className="accent" aria-current="page">{titleCase(s)}</span>
+              ) : findPage(page.slug.slice(0, i + 1)) ? (
+                <Link href={"/" + page.slug.slice(0, i + 1).join("/")}>{titleCase(s)}</Link>
+              ) : (
+                <span>{titleCase(s)}</span>
+              )}
+            </span>
+          ))}
+        </nav>
+        <article className="prose">{blocks}</article>
+        {page.form ? (
+          <p>
+            <a className="pill pill-accent pill-lg" href={page.source}>Open the live Teramis form</a>
+          </p>
+        ) : null}
+        <p className="note">
+          Source page: <a href={page.source}>{page.source}</a>. This preview does not add claims that are not on that page.
         </p>
-      ) : null}
-      <p className="note">
-        Source page: <a href={page.source}>{page.source}</a>. This preview does not add claims that are not on that page.
-      </p>
+      </div>
     </main>
   );
 }
