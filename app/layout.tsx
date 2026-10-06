@@ -4,6 +4,7 @@ import { SITE_URL } from "../lib/site";
 import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
 import { CookieNotice } from "../components/CookieNotice";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Teramis",
@@ -40,6 +41,7 @@ export default function RootLayout({
         {children}
         <SiteFooter />
         <CookieNotice />
+        <Analytics />
       </body>
     </html>
   );
