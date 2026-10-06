@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { CONSENT_KEY, setCookieConsent } from "../lib/consent";
 
-const CONSENT_KEY = "teramis-consent";
 const OPEN_EVENT = "teramis:cookies";
 
 export function CookieNotice() {
@@ -23,10 +23,8 @@ export function CookieNotice() {
     };
   }, []);
 
-  const choose = (v: string) => () => {
-    try {
-      localStorage.setItem(CONSENT_KEY, v);
-    } catch {}
+  const choose = (v: "all" | "essential") => () => {
+    setCookieConsent(v);
     setOpen(false);
   };
 
