@@ -3811,6 +3811,7 @@ body {
   --hsf-row__vertical-spacing: 20px;
   --hsf-module__vertical-spacing: 20px;
   --hsf-background__background-color: transparent;
+  --hsf-background__background-image: none;
   --hsf-background__padding: 0px;
   --hsf-background__border-width: 0px;
   --hsf-heading__font-family: "Space Grotesk", system-ui, sans-serif;
@@ -4255,4 +4256,12 @@ body {
   .reading-layout.has-toc {
     grid-template-columns: minmax(0, 1fr);
   }
+}
+
+/* Checkbox controls should not inherit text-input padding from the embed. */
+.hs-form-html .hsfc-CheckboxInput {
+  padding: 0 !important;
+  width: 20px !important;
+  height: 20px !important;
+  flex: 0 0 20px;
 }
