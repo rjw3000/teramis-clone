@@ -51,6 +51,12 @@ server.stderr.on("data", (d) => (log += d));
           assert(text.includes("<h1"), p.path + " missing main heading");
           assert(!text.includes("digital marketing agency"), p.path);
           assert(!text.includes("V2 approval document"), p.path);
+          const expectedImage = p.image || "/opengraph-image.jpg";
+          for (const tag of ["og:image", "twitter:image"]) {
+            const imageMeta = text.match(new RegExp(`<meta[^>]+(?:property|name)="${tag}"[^>]+content="([^"]+)"`));
+            assert(imageMeta, p.path + " missing " + tag);
+            assert(imageMeta[1].includes(expectedImage), p.path + " incorrect " + tag);
+          }
         }),
       );
     assert.equal((await fetch(origin + "/not-a-real-route")).status, 404);
@@ -59,9 +65,9 @@ server.stderr.on("data", (d) => (log += d));
     assert(sitemap.includes("https://teramis-clone.vercel.app/"));
     const robots = await (await fetch(origin + "/robots.txt")).text();
     assert(robots.includes("Disallow: /brief"));
-    const image = await fetch(origin + "/opengraph-image");
+    const image = await fetch(origin + "/opengraph-image.jpg");
     assert.equal(image.status, 200);
-    assert(image.headers.get("content-type")?.includes("image/png"));
+    assert(image.headers.get("content-type")?.includes("image/jpeg"));
     assert((await image.arrayBuffer()).byteLength > 1000);
     const icon = await fetch(origin + "/icon.svg");
     assert.equal(icon.status, 200);
