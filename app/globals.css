@@ -3299,3 +3299,89 @@ body:has(.landing) .ftr a:hover {
     transform: none;
   }
 }
+
+/* Official customer and partner marks */
+.landing .proof-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  column-gap: clamp(24px, 4vw, 70px);
+  row-gap: 24px;
+}
+.landing .proof-links > a {
+  min-width: 0;
+  align-items: flex-start;
+  gap: 12px;
+}
+.proof-logo-frame {
+  display: flex;
+  align-items: center;
+  height: 68px;
+  max-width: 100%;
+}
+.proof-logo-frame img {
+  display: block;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+.proof-logo-johnson {
+  width: 198px;
+  background: #f3f6f9;
+  border-radius: 5px;
+  justify-content: center;
+}
+.proof-logo-johnson img {
+  width: 175px;
+  height: 60px;
+}
+.proof-logo-futurefeed img {
+  width: 220px;
+  height: auto;
+}
+.proof-logo-indirectit img {
+  width: 212px;
+  height: auto;
+}
+.landing .proof-links > a:hover .proof-logo-frame {
+  outline: 1px solid rgba(241, 189, 104, 0.35);
+  outline-offset: 7px;
+  border-radius: 5px;
+}
+@media (max-width: 800px) {
+  .landing .proof-links {
+    column-gap: 24px;
+  }
+  .proof-logo-johnson {
+    width: 175px;
+  }
+  .proof-logo-futurefeed img {
+    width: 190px;
+  }
+  .proof-logo-indirectit img {
+    width: 190px;
+  }
+}
+@media (max-width: 520px) {
+  .landing .proof-links {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .landing .proof-links > a {
+    width: 100%;
+    gap: 5px;
+  }
+  .proof-logo-frame {
+    height: 62px;
+  }
+  .proof-logo-johnson {
+    width: 184px;
+    height: 64px;
+  }
+  .proof-logo-futurefeed img {
+    width: 208px;
+  }
+  .proof-logo-indirectit img {
+    width: 208px;
+  }
+}
