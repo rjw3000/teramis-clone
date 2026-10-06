@@ -1,0 +1,10 @@
+SYNTHETIC EXAMPLE — NOT CUSTOMER DATA
+Illustrative boundary exception summary
+
+Scope: fictional engineering repository and field laptop FLD-LT-007.
+Documented boundary: authorized engineering repository.
+Exception: Engineering_Notes_Unmarked.pdf appears on the field laptop.
+Evidence: fictional technical notes and program context; no marking is present.
+Review: authorized personnel must determine classification and handling.
+Proposed action: review, select the approved destination, approve remediation, verify the transfer, document source handling, and rescan.
+This sample illustrates a conversation and is not a production report specification.

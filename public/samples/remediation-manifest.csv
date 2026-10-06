@@ -1,0 +1,2 @@
+demo_label,finding_id,source_file,authorized_destination,approval,verification,source_handling,follow_up
+SYNTHETIC EXAMPLE,F-001,Field laptop/Engineering_Notes_Unmarked.pdf,Authorized enclave/Engineering,Illustrative customer approval,Illustrative matching SHA-256 hashes,Tombstone after verified transfer,Rescan source location
