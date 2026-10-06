@@ -1,5 +1,11 @@
 # teramis-clone
 
-Public-route clone of https://teramis.us/ for the termamis.awesome preview.
+Next.js clone of the public Teramis routes for the termamis.awesome preview.
 
-Routes mirror the live navigation. Forms link to the live Teramis form. /brief is the name note.
+Copy comes from https://teramis.us/. Forms link to the live Teramis form. /brief is the name note.
+
+```
+npm install
+npm run build
+npm start
+```
