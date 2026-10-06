@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { CinematicHero } from "./CinematicHero";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   LEVELS,
@@ -319,13 +319,6 @@ export function Landing() {
   const plane = (i: number) => () => nav(SAMPLE[i], { scroll: true });
   const feat = (i: number) => () => setOpenFeat((f) => (f === i ? null : i));
 
-  const planes = [
-    { name: "ENVIRONMENT", title: "L0 · Environment" },
-    { name: "SOURCE", title: "L1 · Source" },
-    { name: "REPOSITORY", title: "L2 · Repository" },
-    { name: "LOCATION", title: "L3 · Location" },
-  ];
-
   return (
     <>
       <div
@@ -377,105 +370,7 @@ export function Landing() {
       </div>
 
       <main id="main" tabIndex={-1} className="landing">
-        <section className="hero">
-          <div className="wrap hero-in">
-            <div data-reveal="0" className="hero-copy">
-              <Eyebrow items={["Teramis", "Platform", "CUI Discovery"]} />
-              <h1>
-                Know where your CUI <span className="accent">actually</span>{" "}
-                lives.
-              </h1>
-              <p className="lead">
-                Teramis helps Defense Industrial Base organizations, government
-                agencies, and compliance partners discover CUI, ITAR, and other
-                covered defense information wherever it lives — from the whole
-                environment down to the file — so you can validate the boundary,
-                remediate what’s out of place, and monitor for spillage over
-                time.
-              </p>
-              <div className="row-gap">
-                <Link
-                  href="/request-a-demo"
-                  className="pill pill-accent pill-lg"
-                >
-                  Request a Demo
-                  <I.ArrowRight />
-                </Link>
-                <a
-                  href="#explore"
-                  onClick={goExplorer}
-                  className="pill pill-line pill-lg"
-                >
-                  <I.Layers />
-                  Explore the environment
-                </a>
-              </div>
-              <ul className="ticks">
-                <li>
-                  <I.Check size={16} stroke="var(--l2)" />
-                  Scanning inside your environment
-                </li>
-                <li>
-                  <I.Check size={16} stroke="var(--l2)" />
-                  Remediation only on approved actions
-                </li>
-              </ul>
-            </div>
-
-            <div data-reveal="2" className="hero-art">
-              <div className="stack-stage">
-                <div className="stack">
-                  {planes.map((p, i) => (
-                    <button
-                      type="button"
-                      aria-label={"Explore " + p.title}
-                      key={p.name}
-                      onClick={plane(i)}
-                      title={p.title}
-                      className={"plane plane-" + i}
-                    >
-                      <span>
-                        L{i} · {p.name}
-                      </span>
-                    </button>
-                  ))}
-                  <button
-                    type="button"
-                    aria-label="Explore L4 · File"
-                    onClick={plane(4)}
-                    title="L4 · File"
-                    className="plane plane-4"
-                  >
-                    <I.FileText size={30} width={1.75} />
-                  </button>
-                </div>
-              </div>
-              <div className="glass hero-scan">
-                <span className="muted">DEMO SCAN · 1,018,500 FILES</span>
-                <span className="hero-scan-n">
-                  <span className="pulse" />
-                  3,516 potential findings
-                </span>
-              </div>
-              <div className="glass hero-path">
-                <span className="mono-label">DEMO DRILL-DOWN PATH</span>
-                <span className="hero-path-p">
-                  <span style={{ color: lc(0) }}>Environment</span>
-                  <span className="sep">/</span>
-                  <span style={{ color: lc(1) }}>Microsoft 365</span>
-                  <span className="sep">/</span>
-                  <span style={{ color: lc(2) }}>SharePoint</span>
-                  <span className="sep">/</span>
-                  <span style={{ color: lc(3) }}>Engineering Site</span>
-                </span>
-                <span className="small muted">
-                  812 findings ·{" "}
-                  <span className="danger strong">41 outside boundary</span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </section>
+        <CinematicHero onExplore={goExplorer} />
 
         <ProofStrip />
         <LifecycleOverview />

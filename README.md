@@ -55,9 +55,22 @@ before treating lead delivery as verified.
 
 ## Checks
 
-Eight regression tests cover content completeness, safe imported markup, internal links,
+Nine regression tests cover content completeness, safe imported markup, internal links,
 FAQ structure, restored legal/remediation content, explorer aggregates and invalid hashes,
-the guided scenario, form mappings, production origins, and synthetic downloads.
+the guided scenario, form mappings, production origins, synthetic downloads, and hero-media format/loading budgets.
 GitHub Actions runs the tests, type checking, production build, and production smoke checks across all 42 routes, downloads, social image, sitemap, robots, and 404 handling.
 
 Next.js was upgraded to a patched 15.5 release, with a patched PostCSS override.
+
+## Cinematic homepage
+
+The homepage uses an original Higgsfield aerospace scanning film, a navy/amber visual system,
+and an interactive discovery console. The console is illustrative; no production scanning is performed.
+
+The film and lightweight JPEG poster are served from public/media. Playback is muted, inline,
+and looped, with a pause control. Reduced-motion and data-saving preferences show the static
+poster until the visitor explicitly plays the video. Playback pauses outside the hero and when
+the browser tab is hidden. Video failures leave the poster and all calls to action available.
+
+The cinematic visual is AI-generated and does not depict a customer deployment or imply
+government endorsement. Media generation details are recorded in docs/hero-video.md.

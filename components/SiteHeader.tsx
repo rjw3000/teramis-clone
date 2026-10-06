@@ -66,7 +66,7 @@ export function SiteHeader() {
     !href.includes("#") &&
     (pathname === href || pathname.startsWith(href + "/"));
   return (
-    <header className="hdr">
+    <header className={"hdr" + (pathname === "/" ? " hdr-cinematic" : "")}>
       <div className="wrap hdr-in">
         <Link href="/" aria-label="Teramis — home" className="hdr-logo">
           <img src="/assets/logo.avif" alt="Teramis" width={110} height={34} />
