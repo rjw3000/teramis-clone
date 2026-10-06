@@ -32,11 +32,11 @@ export async function generateMetadata({
             authors: [page.author || "Teramis"],
           }
         : {}),
-      images: [siteUrl(page.image || "/opengraph-image")],
+      images: [siteUrl(page.image || "/opengraph-image.jpg")],
     },
     twitter: {
       card: "summary_large_image",
-      images: [siteUrl(page.image || "/opengraph-image")],
+      images: [siteUrl(page.image || "/opengraph-image.jpg")],
     },
   };
 }

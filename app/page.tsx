@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: siteUrl("/"),
     images: [
       {
-        url: siteUrl("/opengraph-image"),
+        url: siteUrl("/opengraph-image.jpg"),
         width: 1200,
         height: 630,
         alt: "Teramis — CUI discovery, validation, remediation and monitoring",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Mission-critical data. Total visibility.",
-    images: [siteUrl("/opengraph-image")],
+    images: [siteUrl("/opengraph-image.jpg")],
   },
 };
 export default function Home() {
