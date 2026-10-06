@@ -31,7 +31,7 @@ export function formForPath(path: string): FormKind | null {
   if (path === "/cui-discovery-readiness-assessment-teramis")
     return "assessment";
   if (path === "/partners/become-a-partner") return "partner";
-  if (path === "/contact-us" || path === "/talk-to-us-about-cui")
-    return "contact";
+  if (path === "/talk-to-us-about-cui") return "assessment";
+  if (path === "/contact-us") return "contact";
   return null;
 }

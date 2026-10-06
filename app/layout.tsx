@@ -11,10 +11,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 };
 
-export const viewport: Viewport = { themeColor: "#1A1A1A" };
-
-// Set the theme before first paint so dark mode does not flash.
-const themeScript = `try{var t=localStorage.getItem('teramis-dd-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}`;
+export const viewport: Viewport = { themeColor: "#07111a" };
 
 export default function RootLayout({
   children,
@@ -22,9 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-theme="dark">
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

@@ -1,7 +1,11 @@
 const assert = require("node:assert/strict");
 const { spawn } = require("node:child_process");
 const path = require("node:path");
-const pages = require("../content/pages.json");
+const pages = [
+  ...require("../content/pages.json"),
+  ...require("../content/articles.json"),
+  ...require("../content/guides.json"),
+];
 const root = path.resolve(__dirname, "..");
 const origin = "http://127.0.0.1:3147";
 const server = spawn(
@@ -38,6 +42,11 @@ server.stderr.on("data", (d) => (log += d));
         pages.slice(i, i + 4).map(async (p) => {
           const response = await fetch(origin + p.path);
           assert.equal(response.status, 200, p.path);
+          assert.equal(response.headers.get("x-content-type-options"), "nosniff", p.path);
+          assert.equal(response.headers.get("x-frame-options"), "DENY", p.path);
+          assert.equal(response.headers.get("referrer-policy"), "strict-origin-when-cross-origin", p.path);
+          assert.equal(response.headers.get("permissions-policy"), "camera=(), microphone=(), geolocation=()", p.path);
+          assert.equal(response.headers.get("content-security-policy"), "base-uri 'self'; object-src 'none'; frame-ancestors 'none'", p.path);
           const text = await response.text();
           assert(text.includes("<h1"), p.path + " missing main heading");
           assert(!text.includes("digital marketing agency"), p.path);
@@ -80,7 +89,7 @@ server.stderr.on("data", (d) => (log += d));
     console.log(
       "Production smoke checks passed: " +
         pages.length +
-        " routes, 404, sitemap, robots, social image, favicon, all three downloads, and hero media with byte-range streaming.",
+        " routes with security headers, 404, sitemap, robots, social image, favicon, all three downloads, and hero media with byte-range streaming.",
     );
   } catch (e) {
     console.error(e);

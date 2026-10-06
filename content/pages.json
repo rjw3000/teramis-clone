@@ -467,9 +467,7 @@
     "form": false
   },
   {
-    "slug": [
-      "platform"
-    ],
+    "slug": ["platform"],
     "path": "/platform",
     "title": "CUI Discovery & Remediation Platform | Teramis",
     "description": "Discover, validate, remediate, and monitor CUI, ITAR, and other covered defense information to build a more defensible CUI boundary.",
@@ -1052,10 +1050,7 @@
     "form": false
   },
   {
-    "slug": [
-      "company",
-      "how-teramis-works"
-    ],
+    "slug": ["company", "how-teramis-works"],
     "path": "/company/how-teramis-works",
     "title": "How Teramis Works | CUI Discovery and Validation",
     "description": "See how Teramis discovers CUI, validates findings, produces defensible boundary evidence, and monitors for movement and spillage over time.",
@@ -1779,10 +1774,7 @@
     "form": false
   },
   {
-    "slug": [
-      "platform",
-      "cui-discovery"
-    ],
+    "slug": ["platform", "cui-discovery"],
     "path": "/platform/cui-discovery",
     "title": "CUI Discovery Software | Teramis",
     "description": "Find CUI, ITAR, and other covered defense information across Microsoft 365, file shares, endpoints, engineering files, scans, and archives.",
@@ -2393,10 +2385,7 @@
     "form": false
   },
   {
-    "slug": [
-      "platform",
-      "evidence-validation"
-    ],
+    "slug": ["platform", "evidence-validation"],
     "path": "/platform/evidence-validation",
     "title": "CUI Evidence Validation for Scoping | Teramis",
     "description": "Validate CUI discovery findings, identify boundary exceptions, and build clearer evidence for scoping, self-assessment, and ongoing monitoring.",
@@ -2771,10 +2760,7 @@
     "form": false
   },
   {
-    "slug": [
-      "platform",
-      "ongoing-cui-monitoring"
-    ],
+    "slug": ["platform", "ongoing-cui-monitoring"],
     "path": "/platform/ongoing-cui-monitoring",
     "title": "Continuous CUI Monitoring and Spillage Visibility | Teramis",
     "description": "Use recurring CUI scans to identify new findings, movement, possible spillage, and boundary changes across approved data environments.",
@@ -3071,10 +3057,7 @@
     "form": false
   },
   {
-    "slug": [
-      "platform",
-      "remediation"
-    ],
+    "slug": ["platform", "remediation"],
     "path": "/platform/remediation",
     "title": "CUI Remediation Software | Teramis",
     "description": "Remediate validated CUI findings with controlled movement, transfer verification, tombstones, manifests, logs, and evidence for your compliance records.",
@@ -3495,10 +3478,7 @@
     "form": false
   },
   {
-    "slug": [
-      "platform",
-      "deployment-and-data-sources"
-    ],
+    "slug": ["platform", "deployment-and-data-sources"],
     "path": "/platform/deployment-and-data-sources",
     "title": "Deployment & Supported Data Sources | Teramis",
     "description": "See how Teramis deploys and which data sources it examines, from Microsoft 365 and file shares to endpoints, archives, and engineering repositories.",
@@ -3729,9 +3709,7 @@
     "form": false
   },
   {
-    "slug": [
-      "who-we-help"
-    ],
+    "slug": ["who-we-help"],
     "path": "/who-we-help",
     "title": "Who Teramis Helps | CUI Discovery",
     "description": "See how Teramis helps defense contractors, enterprises, agencies, and partners discover and remediate CUI, ITAR, and other covered defense information.",
@@ -4237,9 +4215,7 @@
     "form": false
   },
   {
-    "slug": [
-      "solutions"
-    ],
+    "slug": ["solutions"],
     "path": "/solutions",
     "title": "CUI Discovery Solutions | Teramis",
     "description": "Find the Teramis solution for your CUI decision: scoping, boundary validation, spillage monitoring, migration, post-incident review, or M&A.",
@@ -4814,10 +4790,7 @@
     "form": false
   },
   {
-    "slug": [
-      "solutions",
-      "cmmc-scoping"
-    ],
+    "slug": ["solutions", "cmmc-scoping"],
     "path": "/solutions/cmmc-scoping",
     "title": "Evidence-Based CUI Scoping | Teramis",
     "description": "Use technical CUI discovery evidence to define and validate your CUI scope based on where Controlled Unclassified Information actually resides.",
@@ -5715,10 +5688,7 @@
     "form": false
   },
   {
-    "slug": [
-      "solutions",
-      "cui-boundary-validation"
-    ],
+    "slug": ["solutions", "cui-boundary-validation"],
     "path": "/solutions/cui-boundary-validation",
     "title": "CUI Boundary Validation | Teramis",
     "description": "Test whether your documented CUI boundary matches your actual data environment, and surface CUI found outside approved locations.",
@@ -6687,10 +6657,7 @@
     "form": false
   },
   {
-    "slug": [
-      "solutions",
-      "cui-remediation-spillage-monitoring"
-    ],
+    "slug": ["solutions", "cui-remediation-spillage-monitoring"],
     "path": "/solutions/cui-remediation-spillage-monitoring",
     "title": "CUI Remediation & Spillage Monitoring | Teramis",
     "description": "Act on validated CUI findings with controlled movement, verification, and documentation your team can use for compliance records.",
@@ -7034,10 +7001,7 @@
     "form": false
   },
   {
-    "slug": [
-      "solutions",
-      "migration-support"
-    ],
+    "slug": ["solutions", "migration-support"],
     "path": "/solutions/migration-support",
     "title": "CUI Migration Support for Secure Enclaves | Teramis",
     "description": "Know what CUI needs to move before an enclave or tenant migration, move it with verification, and confirm nothing was left behind.",
@@ -7378,10 +7342,7 @@
     "form": false
   },
   {
-    "slug": [
-      "solutions",
-      "post-incident-cui-scoping-and-discovery-teramis"
-    ],
+    "slug": ["solutions", "post-incident-cui-scoping-and-discovery-teramis"],
     "path": "/solutions/post-incident-cui-scoping-and-discovery-teramis",
     "title": "Post-Incident CUI Scoping and Discovery | Teramis",
     "description": "After an incident, determine factually whether CUI was present in affected systems, so counsel and response teams can decide from evidence.",
@@ -7661,10 +7622,7 @@
     "form": false
   },
   {
-    "slug": [
-      "solutions",
-      "supply-chain-ma"
-    ],
+    "slug": ["solutions", "supply-chain-ma"],
     "path": "/solutions/supply-chain-ma",
     "title": "CUI Due Diligence for M&A and Supply Chain | Teramis",
     "description": "Test whether claims about an organization's CUI footprint hold up against findings from the actual environment.",
@@ -7952,11 +7910,7 @@
     "form": false
   },
   {
-    "slug": [
-      "solutions",
-      "by-organization",
-      "small-business"
-    ],
+    "slug": ["solutions", "by-organization", "small-business"],
     "path": "/solutions/by-organization/small-business",
     "title": "CUI Discovery for Small Businesses | Teramis",
     "description": "Find where CUI exists across your environment before making scope, enclave, technology, or SPRS self-assessment decisions.",
@@ -8464,11 +8418,7 @@
     "form": false
   },
   {
-    "slug": [
-      "solutions",
-      "by-organization",
-      "enterprise"
-    ],
+    "slug": ["solutions", "by-organization", "enterprise"],
     "path": "/solutions/by-organization/enterprise",
     "title": "Enterprise CUI Discovery | Teramis",
     "description": "Discover and validate CUI across complex enterprise systems, repositories, business units, and acquired environments with technical evidence from Teramis.",
@@ -8792,10 +8742,7 @@
     "form": false
   },
   {
-    "slug": [
-      "solutions",
-      "government-agencies"
-    ],
+    "slug": ["solutions", "government-agencies"],
     "path": "/solutions/government-agencies",
     "title": "CUI Discovery for Government Agencies | Teramis",
     "description": "Discover and validate CUI across approved government environments to support boundary decisions, publication workflows, and ongoing monitoring.",
@@ -9238,11 +9185,7 @@
     "form": false
   },
   {
-    "slug": [
-      "solutions",
-      "by-organization",
-      "compliance-advisors"
-    ],
+    "slug": ["solutions", "by-organization", "compliance-advisors"],
     "path": "/solutions/by-organization/compliance-advisors",
     "title": "CUI Discovery Tools for Compliance Advisors | Teramis",
     "description": "Give advisory and scoping engagements technical CUI discovery evidence instead of interview-based assumptions.",
@@ -9471,9 +9414,7 @@
     "form": false
   },
   {
-    "slug": [
-      "partners"
-    ],
+    "slug": ["partners"],
     "path": "/partners",
     "title": "Partner With Teramis | CUI Discovery for MSPs & Advisors",
     "description": "Partner with Teramis to help clients discover CUI, validate CUI boundaries, and monitor changes with evidence-based services and resources.",
@@ -9884,10 +9825,7 @@
     "form": false
   },
   {
-    "slug": [
-      "partners",
-      "partner-program"
-    ],
+    "slug": ["partners", "partner-program"],
     "path": "/partners/partner-program",
     "title": "Teramis Partner Program | CUI Discovery",
     "description": "See how the Teramis partner program works, which engagement paths are available, and what partners and Teramis are each responsible for.",
@@ -10196,10 +10134,7 @@
     "form": false
   },
   {
-    "slug": [
-      "partners",
-      "partner-resources"
-    ],
+    "slug": ["partners", "partner-resources"],
     "path": "/partners/partner-resources",
     "title": "CUI Discovery Partner Resources and Enablement | Teramis",
     "description": "Explore sales, demonstration, onboarding, and client-education resources to help Teramis partners position and deliver CUI discovery services.",
@@ -10492,10 +10427,7 @@
     "form": false
   },
   {
-    "slug": [
-      "partners",
-      "who-we-partner-with"
-    ],
+    "slug": ["partners", "who-we-partner-with"],
     "path": "/partners/who-we-partner-with",
     "title": "CUI Discovery Partners: MSPs, Advisors, GRC & Tech | Teramis",
     "description": "See how MSPs, MSSPs, compliance advisors, GRC and enclave providers, and technology partners use Teramis CUI discovery evidence.",
@@ -11442,10 +11374,7 @@
     "form": false
   },
   {
-    "slug": [
-      "partners",
-      "become-a-partner"
-    ],
+    "slug": ["partners", "become-a-partner"],
     "path": "/partners/become-a-partner",
     "title": "Become a Teramis Partner | CUI Discovery",
     "description": "Tell us about your organization, the clients you support, and the partnership path you are exploring.",
@@ -11841,9 +11770,7 @@
     "form": true
   },
   {
-    "slug": [
-      "resources"
-    ],
+    "slug": ["resources"],
     "path": "/resources",
     "title": "CUI Discovery & Compliance Resources | Teramis",
     "description": "Explore CUI discovery and compliance resources, including guides, webinars, FAQs, case studies, announcements, and boundary validation insights.",
@@ -12036,10 +11963,7 @@
     "form": false
   },
   {
-    "slug": [
-      "resources",
-      "faqs"
-    ],
+    "slug": ["resources", "faqs"],
     "path": "/resources/faqs",
     "title": "CUI Discovery & Remediation FAQs | Teramis",
     "description": "Answers about Teramis CUI discovery, validation, Remedius remediation, scoping, migration support, spillage, and ongoing monitoring.",
@@ -12285,10 +12209,7 @@
     "form": false
   },
   {
-    "slug": [
-      "resources",
-      "videos-webinars"
-    ],
+    "slug": ["resources", "videos-webinars"],
     "path": "/resources/videos-webinars",
     "title": "CUI Discovery Videos & Webinars | Teramis",
     "description": "Watch Teramis videos and webinars on CUI discovery, scoping, boundary validation, and continuous monitoring.",
@@ -12395,10 +12316,7 @@
     "form": false
   },
   {
-    "slug": [
-      "resources",
-      "library"
-    ],
+    "slug": ["resources", "library"],
     "path": "/resources/library",
     "title": "CUI Discovery Resource Library | Teramis",
     "description": "White papers, guides, one-pagers, and case studies on CUI discovery, scoping, and boundary validation for the Defense Industrial Base.",
@@ -12533,9 +12451,7 @@
     "form": false
   },
   {
-    "slug": [
-      "teramis-blog"
-    ],
+    "slug": ["teramis-blog"],
     "path": "/teramis-blog",
     "title": "Teramis Blog | CUI Discovery & Safeguarding Insights",
     "description": "Practical insights on CUI discovery, scoping, boundary validation, DFARS safeguarding, ongoing monitoring, and CUI spillage.",
@@ -12862,9 +12778,7 @@
     "form": false
   },
   {
-    "slug": [
-      "company"
-    ],
+    "slug": ["company"],
     "path": "/company",
     "title": "About Teramis | Precision CUI Discovery",
     "description": "Teramis helps defense contractors, enterprises, and agencies discover, remediate, and monitor CUI, ITAR, and other covered defense information.",
@@ -13103,10 +13017,7 @@
     "form": false
   },
   {
-    "slug": [
-      "company",
-      "about"
-    ],
+    "slug": ["company", "about"],
     "path": "/company/about",
     "title": "Our Mission: Defensible CUI Discovery | Teramis",
     "description": "Learn how Teramis helps DIB organizations discover, validate, remediate, and monitor CUI, ITAR, and other covered defense information.",
@@ -13426,9 +13337,7 @@
     "form": false
   },
   {
-    "slug": [
-      "use-cases"
-    ],
+    "slug": ["use-cases"],
     "path": "/use-cases",
     "title": "CUI Use Cases: Scoping, Validation & Monitoring | Teramis",
     "description": "Explore how Teramis supports CUI scoping, boundary validation, spillage monitoring, migration planning, and post-breach impact assessment.",
@@ -13519,10 +13428,7 @@
     "form": false
   },
   {
-    "slug": [
-      "company",
-      "careers"
-    ],
+    "slug": ["company", "careers"],
     "path": "/company/careers",
     "title": "Careers at Teramis | Cybersecurity and Python Jobs",
     "description": "Explore careers at Teramis and apply for remote U.S.-based roles supporting CUI discovery, cybersecurity engineering, and the Defense Industrial Base.",
@@ -13868,76 +13774,72 @@
     "form": false
   },
   {
-    "slug": [
-      "contact-us"
-    ],
+    "slug": ["contact-us"],
     "path": "/contact-us",
     "title": "Contact Teramis",
-    "description": "Contact Teramis about CUI discovery, boundary validation, monitoring, or partnership.",
+    "description": "Talk with Teramis about CUI discovery, validation, remediation, monitoring, or a partner engagement.",
     "source": "https://teramis.us/contact-us",
     "parts": [
       {
         "tag": "h1",
-        "text": "Contact Teramis"
+        "text": "Let’s talk about your CUI."
       },
       {
         "tag": "p",
-        "text": "WHY PARTNER WITH TERAMIS",
-        "html": "WHY PARTNER WITH TERAMIS"
+        "text": "Talk with Teramis about CUI discovery, validation, remediation, monitoring, or a partner engagement."
       },
       {
         "tag": "h2",
-        "text": "Add CUI Evidence to the Services You Already Deliver"
+        "text": "Start with the question you need to answer."
       },
       {
         "tag": "p",
-        "text": "Teramis helps partners bring technical CUI discovery, validation, and monitoring into existing compliance, cybersecurity, infrastructure, and managed service engagements.",
-        "html": "Teramis helps partners bring technical CUI discovery, validation, and monitoring into existing compliance, cybersecurity, infrastructure, and managed service engagements."
+        "text": "Tell us what you are trying to understand, which systems are involved, and what decision comes next. The Teramis team will review your request and help identify the right conversation."
       },
       {
         "tag": "h3",
-        "text": "Strengthen Client Recommendations"
+        "text": "See the platform in action"
       },
       {
         "tag": "p",
-        "text": "Support scoping and boundary decisions with findings about where CUI actually exists in authorized client environments.",
-        "html": "Support scoping and boundary decisions with findings about where CUI actually exists in authorized client environments."
+        "text": "Explore how discovery, validation, remediation, and recurring monitoring apply to your environment."
+      },
+      {
+        "tag": "link",
+        "text": "Request a tailored demo",
+        "href": "/request-a-demo"
       },
       {
         "tag": "h3",
-        "text": "Extend What You Already Offer"
+        "text": "Plan your discovery engagement"
       },
       {
         "tag": "p",
-        "text": "Add discovery and monitoring to advisory, GRC, enclave, MSP, MSSP, compliance, and related client services.",
-        "html": "Add discovery and monitoring to advisory, GRC, enclave, MSP, MSSP, compliance, and related client services."
+        "text": "Discuss data sources, discovery objectives, and the evidence your team needs before finalizing scope."
+      },
+      {
+        "tag": "link",
+        "text": "Request a readiness assessment",
+        "href": "/cui-discovery-readiness-assessment-teramis"
       },
       {
         "tag": "h3",
-        "text": "Choose the Right Engagement Model"
+        "text": "Work with Teramis as a partner"
       },
       {
         "tag": "p",
-        "text": "Explore referral, co-sell, reseller, or service-delivery models based on how your organization works with clients.",
-        "html": "Explore referral, co-sell, reseller, or service-delivery models based on how your organization works with clients."
+        "text": "Bring CUI discovery and boundary evidence into your advisory, cybersecurity, or managed service engagements."
       },
       {
-        "tag": "p",
-        "text": "Teramis provides the evidence layer.",
-        "html": "Teramis provides the evidence layer."
-      },
-      {
-        "tag": "p",
-        "text": "Your team brings the client relationship, engagement context, recommendations, and services around it.",
-        "html": "Your team brings the client relationship, engagement context, recommendations, and services around it."
+        "tag": "link",
+        "text": "Explore the partner program",
+        "href": "/partners"
       }
     ],
     "form": true
   },
   {
-    "slug": [
-      "request-a-demo"
-    ],
+    "slug": ["request-a-demo"],
     "path": "/request-a-demo",
     "title": "Request a Demo | Teramis CUI Discovery",
     "description": "Request a Teramis demo to see how CUI discovery, validation, and ongoing monitoring support evidence-based scoping and boundary decisions.",
@@ -14035,10 +13937,7 @@
     "form": true
   },
   {
-    "slug": [
-      "company",
-      "why-teramis"
-    ],
+    "slug": ["company", "why-teramis"],
     "path": "/company/why-teramis",
     "title": "How Teramis Works | CUI Discovery and Validation",
     "description": "See how Teramis discovers CUI, validates findings, produces defensible boundary evidence, and monitors for movement and spillage over time.",
@@ -14762,14 +14661,16 @@
     "form": false
   },
   {
-    "slug": [
-      "cui-discovery-readiness-assessment-teramis"
-    ],
+    "slug": ["cui-discovery-readiness-assessment-teramis"],
     "path": "/cui-discovery-readiness-assessment-teramis",
     "title": "CUI Discovery Readiness Assessment | Teramis",
     "description": "Request a CUI Discovery Readiness Assessment to see where CUI may exist, replace scoping assumptions with evidence, and make defensible boundary decisions.",
     "source": "https://teramis.us/cui-discovery-readiness-assessment-teramis",
     "parts": [
+      {
+        "tag": "h1",
+        "text": "Find your CUI before you build the boundary."
+      },
       {
         "tag": "p",
         "text": "CUI DISCOVERY",
@@ -14810,7 +14711,7 @@
         "html": "Start with a no-obligation, 30-minute scoping conversation with one of our experts."
       },
       {
-        "tag": "h1",
+        "tag": "h2",
         "text": "What You Get"
       },
       {
@@ -15054,14 +14955,16 @@
     "form": false
   },
   {
-    "slug": [
-      "talk-to-us-about-cui"
-    ],
+    "slug": ["talk-to-us-about-cui"],
     "path": "/talk-to-us-about-cui",
     "title": "Talk to Us About CUI | Teramis",
     "description": "Discover where Controlled Unclassified Information resides in your organization to optimize CMMC compliance and reduce assumptions. Schedule your no-obligation assessment call today.",
     "source": "https://teramis.us/talk-to-us-about-cui",
     "parts": [
+      {
+        "tag": "h1",
+        "text": "Find your CUI before you build the boundary."
+      },
       {
         "tag": "p",
         "text": "CUI DISCOVERY ASSESSMENT",
@@ -15102,7 +15005,7 @@
         "html": "Start with a no-obligation, 30-minute scoping conversation with one of our experts."
       },
       {
-        "tag": "h1",
+        "tag": "h2",
         "text": "What You Get"
       },
       {
@@ -15111,8 +15014,8 @@
       },
       {
         "tag": "p",
-        "text": "We learn our goals, environment, and immediate concerns.",
-        "html": "We learn our goals, environment, and immediate concerns."
+        "text": "We learn your goals, environment, and immediate concerns.",
+        "html": "We learn your goals, environment, and immediate concerns."
       },
       {
         "tag": "h3",
@@ -15299,7 +15202,7 @@
       },
       {
         "tag": "h2",
-        "text": "What Happens When You Request an Call?"
+        "text": "What Happens When You Request a Call?"
       },
       {
         "tag": "h3",
@@ -15341,9 +15244,7 @@
     "form": true
   },
   {
-    "slug": [
-      "privacy-policy"
-    ],
+    "slug": ["privacy-policy"],
     "path": "/privacy-policy",
     "title": "Teramis Privacy Policy",
     "description": "Teramis Privacy Policy",
@@ -15801,9 +15702,7 @@
     "form": false
   },
   {
-    "slug": [
-      "eula"
-    ],
+    "slug": ["eula"],
     "path": "/eula",
     "title": "eula",
     "description": "eula",
@@ -16100,9 +15999,7 @@
     "form": false
   },
   {
-    "slug": [
-      "brief"
-    ],
+    "slug": ["brief"],
     "path": "/brief",
     "title": "Name note | termamis.awesome",
     "description": "What termamis.awesome holds next to the live Teramis site.",
@@ -16136,6 +16033,78 @@
       {
         "tag": "p",
         "text": "termamis.awesome is a close spelling, with an extra m, not the spelling published at teramis.us."
+      }
+    ]
+  },
+  {
+    "path": "/resources/knowledge-base",
+    "slug": ["resources", "knowledge-base"],
+    "title": "Knowledge base",
+    "description": "Practical answers for discovery, deployment, scoping, remediation, and ongoing monitoring.",
+    "source": "https://teramis.us/resources/faqs",
+    "form": false,
+    "parts": [
+      {
+        "tag": "h1",
+        "text": "Knowledge base"
+      },
+      {
+        "tag": "p",
+        "text": "Practical answers for discovery, deployment, scoping, remediation, and ongoing monitoring."
+      }
+    ]
+  },
+  {
+    "path": "/resources/case-studies",
+    "slug": ["resources", "case-studies"],
+    "title": "Customer stories",
+    "description": "Published experiences from teams using Teramis to understand their CUI footprint.",
+    "source": "https://teramis.us/teramis-blog",
+    "form": false,
+    "parts": [
+      {
+        "tag": "h1",
+        "text": "Customer stories"
+      },
+      {
+        "tag": "p",
+        "text": "Published experiences from teams using Teramis to understand their CUI footprint."
+      }
+    ]
+  },
+  {
+    "path": "/resources/news",
+    "slug": ["resources", "news"],
+    "title": "Company & partner news",
+    "description": "Partnerships, platform updates, and announcements from Teramis.",
+    "source": "https://teramis.us/teramis-blog",
+    "form": false,
+    "parts": [
+      {
+        "tag": "h1",
+        "text": "Company & partner news"
+      },
+      {
+        "tag": "p",
+        "text": "Partnerships, platform updates, and announcements from Teramis."
+      }
+    ]
+  },
+  {
+    "path": "/solutions/by-organization",
+    "slug": ["solutions", "by-organization"],
+    "title": "Solutions for your organization",
+    "description": "Find the Teramis approach that fits your environment, team, and discovery goals.",
+    "source": "https://teramis.us/solutions",
+    "form": false,
+    "parts": [
+      {
+        "tag": "h1",
+        "text": "Solutions for your organization"
+      },
+      {
+        "tag": "p",
+        "text": "Find the Teramis approach that fits your environment, team, and discovery goals."
       }
     ]
   }

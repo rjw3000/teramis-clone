@@ -14,7 +14,7 @@ const stories = [
     },
     type: "Customer story",
     title: "A closer look at enterprise CUI discovery",
-    href: "https://teramis.us/teramis-blog/from-millions-of-false-positives-to-99-accuracy-how-johnson-controls-solved-its-cui-discovery-challenge",
+    href: "/teramis-blog/from-millions-of-false-positives-to-99-accuracy-how-johnson-controls-solved-its-cui-discovery-challenge",
   },
   {
     name: "FutureFeed",
@@ -26,7 +26,7 @@ const stories = [
     },
     type: "Partner announcement",
     title: "Connecting discovery with compliance workflows",
-    href: "https://teramis.us/teramis-blog/post/futurefeed-announces-partnership-with-teramis",
+    href: "/teramis-blog/post/futurefeed-announces-partnership-with-teramis",
   },
   {
     name: "inDirectIT",
@@ -38,7 +38,7 @@ const stories = [
     },
     type: "Partner announcement",
     title: "Bringing CUI discovery into client compliance work",
-    href: "https://teramis.us/teramis-blog/post/teramis-partners-with-indirectit-to-strengthen-cmmc-compliance-with-automated-cui-discovery",
+    href: "/teramis-blog/post/teramis-partners-with-indirectit-to-strengthen-cmmc-compliance-with-automated-cui-discovery",
   },
 ];
 function Heading({
@@ -462,7 +462,7 @@ export function CustomerStories() {
               <span className="eyebrow">{s.type}</span>
               <h3>{s.name}</h3>
               <p>{s.title}</p>
-              <span className="text-link">Read on teramis.us ↗</span>
+              <span className="text-link">Read the story ↗</span>
             </a>
           ))}
         </div>
