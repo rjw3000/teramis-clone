@@ -3335,6 +3335,14 @@ body:has(.landing) .ftr a:hover {
   width: 175px;
   height: 60px;
 }
+.proof-logo-futurefeed {
+  width: 244px;
+  padding: 0 12px;
+  box-sizing: border-box;
+  background: #f3f6f9;
+  border-radius: 5px;
+  justify-content: center;
+}
 .proof-logo-futurefeed img {
   width: 220px;
   height: auto;
@@ -3354,6 +3362,9 @@ body:has(.landing) .ftr a:hover {
   }
   .proof-logo-johnson {
     width: 175px;
+  }
+  .proof-logo-futurefeed {
+    width: 214px;
   }
   .proof-logo-futurefeed img {
     width: 190px;
@@ -3377,6 +3388,9 @@ body:has(.landing) .ftr a:hover {
   .proof-logo-johnson {
     width: 184px;
     height: 64px;
+  }
+  .proof-logo-futurefeed {
+    width: 232px;
   }
   .proof-logo-futurefeed img {
     width: 208px;
