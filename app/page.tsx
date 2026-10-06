@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Teramis",
-    title: "Know where your CUI actually lives.",
+    title: "Mission-critical data. Total visibility.",
     description:
       "Discovery, validation, approved remediation, and recurring monitoring.",
     url: siteUrl("/"),
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Know where your CUI actually lives.",
+    title: "Mission-critical data. Total visibility.",
     images: [siteUrl("/opengraph-image")],
   },
 };

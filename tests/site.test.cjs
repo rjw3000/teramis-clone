@@ -160,3 +160,26 @@ test("metadata has a production origin and examples are explicitly synthetic", (
       /SYNTHETIC EXAMPLE/,
     );
 });
+
+test("hero assets stay browser-compatible, fast-start, and within loading budgets", () => {
+  const film = fs.readFileSync(
+    path.join(root, "public/media/defense-scan.mp4"),
+  );
+  const poster = fs.readFileSync(
+    path.join(root, "public/media/defense-poster.jpg"),
+  );
+  assert.equal(film.toString("ascii", 4, 8), "ftyp");
+  assert(
+    film.includes(Buffer.from("avc1")),
+    "Serve H.264 for broad browser support",
+  );
+  const moov = film.indexOf(Buffer.from("moov"));
+  const mdat = film.indexOf(Buffer.from("mdat"));
+  assert(
+    moov > 0 && mdat > moov,
+    "Fast-start metadata must precede media data",
+  );
+  assert(film.length < 3 * 1024 * 1024, "Hero film exceeds its 3 MiB budget");
+  assert.equal(poster.readUInt16BE(0), 0xffd8);
+  assert(poster.length < 100 * 1024, "Poster exceeds its 100 KiB budget");
+});
