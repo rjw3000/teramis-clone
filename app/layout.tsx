@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { SiteHeader } from "../components/SiteHeader";
+import { SiteFooter } from "../components/SiteFooter";
+import { CookieNotice } from "../components/CookieNotice";
 
 export const metadata: Metadata = {
   title: "Teramis",
@@ -8,36 +10,26 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://termamis.awesome"),
 };
 
-const links = [
-  ["/", "Home"],
-  ["/platform", "Platform"],
-  ["/solutions", "Solutions"],
-  ["/partners", "Partners"],
-  ["/resources", "Resources"],
-  ["/company", "Company"],
-  ["/brief", "Name note"],
-];
+export const viewport: Viewport = { themeColor: "#1A1A1A" };
+
+// Set the theme before first paint so dark mode does not flash.
+const themeScript = `try{var t=localStorage.getItem('teramis-dd-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" />
+      </head>
       <body>
-        <a href="#main">Skip to content</a>
-        <header className="bar">
-          <Link href="/"><img src="/assets/logo.avif" alt="Teramis" /></Link>
-          <nav>
-            {links.map(([href, label]) => (
-              <Link key={href} href={href}>{label}</Link>
-            ))}
-          </nav>
-          <Link className="btn" href="/request-a-demo">Request a Demo</Link>
-        </header>
+        <a href="#main" className="skip">Skip to content</a>
+        <SiteHeader />
         {children}
-        <footer>
-          <img src="/assets/footer.png" alt="" />
-          <p>Teramis provides precision discovery, validation, remediation, and ongoing monitoring of CUI, ITAR, and other covered defense information. Remediation runs only on actions you approve.</p>
-          <p><Link href="/brief">Name note</Link> · <a href="https://teramis.us/">teramis.us</a> · © 2026</p>
-        </footer>
+        <SiteFooter />
+        <CookieNotice />
       </body>
     </html>
   );
