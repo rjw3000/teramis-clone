@@ -1,0 +1,11 @@
+# Site security review and hardening
+
+The Codex Security Standard scan of commit `6cbb591da4bb71d6b98500ee0d53be090955adb6` found one low-severity maintenance vulnerability: Windows backslash traversal from an upstream sitemap URL could escape the article import cache. Exploitation required control of the upstream sitemap and a manual Windows import; visitor impact additionally required deployment of the generated raw HTML. No public importer endpoint exists.
+
+The article importer now accepts canonical HTTPS Teramis article URLs, validates redirects and final response URLs, uses complete SHA-256 cache filenames, and checks resolved cache containment. Loading the module no longer performs requests or creates directories. Existing slug-named cache entries are not reused. Offline regression tests cover the original traversal, encoded paths, off-origin URLs, redirects, and every currently migrated article.
+
+All routes receive MIME-sniffing protection, framing protection, a reduced referrer policy, disabled camera/microphone/geolocation permissions, and CSP restrictions on base URLs, plugins, and ancestor frames. This baseline CSP intentionally leaves script, style, image and child-frame loading unchanged for Next.js and HubSpot; it is not a strict script policy or a replacement for safe content handling.
+
+The scan reviewed current tracked implementation/configuration/content, not repository history or installed vendor implementation. npm audit reported zero known advisories at review time. A single unauthenticated preview request encountered Vercel Authentication, so deployed headers were not verified by that scan. Runtime smoke checks verify the new headers on all 77 production-build routes locally.
+
+Before treating external controls as verified, check HubSpot recipient ownership, allowed hostnames, CAPTCHA, consent/tracking, and retention; check Vercel account access, environment settings and production response headers, plus GitHub branch protection. The cookie preference currently persists the notice choice; it does not gate HubSpot or Google Fonts loading. No local analytics loader is implemented. No form submission or active exploit test was performed during review.

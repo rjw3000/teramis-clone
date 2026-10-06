@@ -3,7 +3,7 @@
 Original HTML is cached for reproducible imports. No scripts, forms, tracking,
 or arbitrary HTML are retained; article bodies become typed content blocks.
 """
-import json, re, html, urllib.request, xml.etree.ElementTree as ET, importlib.util
+import json, re, html, hashlib, urllib.request, xml.etree.ElementTree as ET, importlib.util
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 from urllib.parse import urlsplit, urljoin
@@ -13,13 +13,57 @@ spec.loader.exec_module(refresh)
 Parser, Node, ROOT = refresh.Parser, refresh.Node, refresh.ROOT
 
 CACHE = ROOT / '.tooling' / 'articles'
-CACHE.mkdir(parents=True, exist_ok=True)
-def get(url):
-    return urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'}), timeout=45).read()
-sitemap = ET.fromstring(get('https://teramis.us/sitemap.xml'))
-urls = sorted({n.text for n in sitemap.findall('{*}url/{*}loc') if '/teramis-blog/' in n.text})
-pages = json.loads((ROOT/'content/pages.json').read_text(encoding='utf-8'))
-local_paths = {p['path'] for p in pages} | {urlsplit(u).path for u in urls}
+local_paths = {p['path'] for p in refresh.pages}
+
+def validate_source(value, *, sitemap=False):
+    # Only canonical HTTPS URLs from the original publishing origin are fetched.
+    # Reject URL/path ambiguity rather than converting remote identifiers into paths.
+    if not isinstance(value, str) or any(ord(c) <= 32 for c in value):
+        raise ValueError('Invalid source URL')
+    parsed = urlsplit(value)
+    if (parsed.scheme != 'https' or parsed.netloc.lower() != 'teramis.us'
+            or parsed.query or parsed.fragment):
+        raise ValueError('Unapproved source URL: ' + value)
+    if sitemap:
+        valid_path = parsed.path == '/sitemap.xml'
+    else:
+        valid_path = re.fullmatch(r'/teramis-blog/(?:[a-z0-9][a-z0-9-]*/)*[a-z0-9][a-z0-9-]*/?', parsed.path)
+    if not valid_path:
+        raise ValueError('Unapproved source path: ' + value)
+    return 'https://teramis.us' + parsed.path
+
+class SourceRedirects(urllib.request.HTTPRedirectHandler):
+    def __init__(self, *, sitemap=False):
+        super().__init__()
+        self.sitemap = sitemap
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        target = validate_source(newurl, sitemap=self.sitemap)
+        return super().redirect_request(req, fp, code, msg, headers, target)
+
+def get(value, *, sitemap=False):
+    value = validate_source(value, sitemap=sitemap)
+    opener = urllib.request.build_opener(SourceRedirects(sitemap=sitemap))
+    with opener.open(urllib.request.Request(value, headers={'User-Agent': 'Mozilla/5.0'}), timeout=45) as response:
+        validate_source(response.geturl(), sitemap=sitemap)
+        return response.read()
+
+def cache_path(source, cache_root=CACHE):
+    source = validate_source(source)
+    root = cache_root.resolve()
+    target = (root / (hashlib.sha256(source.encode('utf-8')).hexdigest() + '.html')).resolve()
+    if not target.is_relative_to(root):
+        raise ValueError('Article cache destination escapes cache root')
+    return target
+
+def sitemap_articles(raw):
+    sitemap = ET.fromstring(raw)
+    sources = set()
+    for node in sitemap.findall('{*}url/{*}loc'):
+        value = node.text or ''
+        if '/teramis-blog/' in value:
+            sources.add(validate_source(value))
+    return sorted(sources)
 def url(value, source):
     value = urljoin(source, value)
     u = urlsplit(value)
@@ -40,8 +84,9 @@ def rich(n, source):
         else: out += rich(c,source)
     return out.strip()
 def migrate(source):
+    source = validate_source(source)
     path = urlsplit(source).path
-    cache = CACHE/(path.split('/')[-1]+'.html')
+    cache = cache_path(source)
     if not cache.exists(): cache.write_bytes(get(source))
     raw = cache.read_text(encoding='utf-8')
     parser=Parser(); parser.feed(raw)
@@ -104,6 +149,9 @@ def migrate(source):
     return {'slug':path.strip('/').split('/'), 'path':path, 'title':title, 'description':description or text[0:170], 'source':source, 'parts':blocks, 'form':False, 'kind':'article', 'author':schema.get('author',{}).get('name','Teramis'), 'published':schema.get('datePublished',''), 'modified':schema.get('dateModified',''), 'image':image, 'imageAlt':image_alt, 'category':category, 'readMinutes':max(1,round(len(text.split())/220))}
 
 if __name__=='__main__':
+    urls = sitemap_articles(get('https://teramis.us/sitemap.xml', sitemap=True))
+    local_paths.update(urlsplit(u).path for u in urls)
+    CACHE.mkdir(parents=True, exist_ok=True)
     articles=list(ThreadPoolExecutor(max_workers=4).map(migrate,urls))
     articles.sort(key=lambda a:a['published'],reverse=True)
     (ROOT/'content/articles.json').write_text(json.dumps(articles,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
