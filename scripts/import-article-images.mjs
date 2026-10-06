@@ -8,13 +8,24 @@ const root = path.resolve(import.meta.dirname, "..");
 const articles = JSON.parse(
   await fs.readFile(path.join(root, "content/articles.json"), "utf8"),
 );
+const overrides = JSON.parse(
+  await fs.readFile(path.join(root, "content/article-image-overrides.json"), "utf8"),
+);
+for (const article of articles)
+  for (const block of article.parts) {
+    const override = overrides[article.path]?.[block.sourceSrc || block.src];
+    if (block.tag === "image" && override) {
+      block.sourceSrc ||= block.src;
+      Object.assign(block, override);
+    }
+  }
 const output = path.join(root, "public/media/articles");
 await fs.mkdir(output, { recursive: true });
 const sources = new Map();
 for (const a of articles) {
   if (a.image) sources.set(a.sourceImage || a.image, null);
   for (const b of a.parts)
-    if (b.tag === "image") sources.set(b.sourceSrc || b.src, null);
+    if (b.tag === "image" && b.imageKind !== "logo") sources.set(b.sourceSrc || b.src, null);
 }
 const queue = [...sources.keys()];
 await Promise.all(
@@ -45,7 +56,7 @@ for (const a of articles) {
     a.image = sources.get(a.sourceImage);
   }
   for (const b of a.parts)
-    if (b.tag === "image") {
+    if (b.tag === "image" && b.imageKind !== "logo") {
       b.sourceSrc ||= b.src;
       b.src = sources.get(b.sourceSrc);
     }

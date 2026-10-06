@@ -6885,9 +6885,12 @@
       },
       {
         "tag": "image",
-        "text": "",
-        "src": "/media/articles/c2b663eea4d17b.webp",
-        "sourceSrc": "https://static.wixstatic.com/media/c6bc0f_5eb97828faf64f28a92d43521425f9ad~mv2.jpeg/v1/fill/w_175,h_175,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/c6bc0f_5eb97828faf64f28a92d43521425f9ad~mv2.jpeg"
+        "text": "inDirectIT",
+        "src": "/assets/partners/indirectit.png",
+        "sourceSrc": "https://static.wixstatic.com/media/c6bc0f_5eb97828faf64f28a92d43521425f9ad~mv2.jpeg/v1/fill/w_175,h_175,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/c6bc0f_5eb97828faf64f28a92d43521425f9ad~mv2.jpeg",
+        "imageKind": "logo",
+        "width": 600,
+        "height": 240
       },
       {
         "tag": "p",

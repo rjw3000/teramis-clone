@@ -3656,9 +3656,27 @@ body {
 }
 .article-figure img {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
   border-radius: 6px;
+}
+.article-partner-logo {
+  width: fit-content;
+  max-width: 100%;
+  padding: 24px;
+  background: #0c1925;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.article-partner-logo figcaption {
+  margin-bottom: 16px;
+}
+.article-partner-logo img {
+  width: 280px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
 }
 .article-table {
   overflow-x: auto;

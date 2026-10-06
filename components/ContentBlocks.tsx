@@ -73,10 +73,16 @@ export function ContentBlocks({
       );
     else if (block.tag === "image" && block.src)
       result.push(
-        <figure className="article-figure" key={index}>
+        <figure
+          className={"article-figure" + (block.imageKind === "logo" ? " article-partner-logo" : "")}
+          key={index}
+        >
+          {block.imageKind === "logo" ? <figcaption className="eyebrow">Partner spotlight</figcaption> : null}
           <img
             src={block.src}
             alt={block.text}
+            width={block.width}
+            height={block.height}
             loading="lazy"
             decoding="async"
           />

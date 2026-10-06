@@ -15,6 +15,9 @@ export type Block = {
   href?: string;
   answer?: string;
   src?: string;
+  imageKind?: "logo";
+  width?: number;
+  height?: number;
   rows?: string[][];
   header?: boolean;
 };
