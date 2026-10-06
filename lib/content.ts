@@ -1,4 +1,10 @@
-export type Block = { tag: "h1" | "h2" | "h3" | "p" | "li"; text: string };
+export type Block = {
+  tag: "h1" | "h2" | "h3" | "p" | "li" | "link" | "faq";
+  text: string;
+  html?: string;
+  href?: string;
+  answer?: string;
+};
 export type Page = {
   slug: string[];
   path: string;

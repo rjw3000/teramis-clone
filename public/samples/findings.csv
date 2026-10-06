@@ -1,0 +1,3 @@
+demo_label,finding_id,file_name,source,location,marking,reason_for_review,boundary_status,review_status
+SYNTHETIC EXAMPLE,F-001,Engineering_Notes_Unmarked.pdf,Endpoints,Field laptop FLD-LT-007,Unmarked,Fictional defense-program technical content requires authorized review,Outside documented boundary,Needs review
+SYNTHETIC EXAMPLE,F-002,Technical_Spec_Lot7.pdf,Microsoft 365,Authorized engineering repository,CUI marking,Illustrative marking and technical context,Inside documented boundary,Reviewed in demo

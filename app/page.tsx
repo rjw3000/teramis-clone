@@ -1,47 +1,53 @@
 import type { Metadata } from "next";
 import { Landing } from "../components/Landing";
-
-const title = "Teramis — CUI discovery from environment to file";
-const description = "Find where CUI actually lives, validate your CUI boundary, and monitor for spillage. Evidence to support DFARS safeguarding and SPRS self-assessments.";
-
+import { siteUrl } from "../lib/site";
 export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "https://termamis.awesome/" },
+  title: "Teramis — CUI discovery from environment to file",
+  description:
+    "Discover potential CUI, validate your documented boundary, remediate approved findings, and monitor changes over time.",
+  alternates: { canonical: siteUrl("/") },
   openGraph: {
     type: "website",
     siteName: "Teramis",
-    title: "Teramis — Know Where Your CUI Actually Lives",
-    description: "Discovery, validation, remediation, and ongoing monitoring of CUI, ITAR, and other covered defense information.",
-    url: "https://termamis.awesome/",
-    locale: "en_US",
+    title: "Know where your CUI actually lives.",
+    description:
+      "Discovery, validation, approved remediation, and recurring monitoring.",
+    url: siteUrl("/"),
+    images: [
+      {
+        url: siteUrl("/opengraph-image"),
+        width: 1200,
+        height: 630,
+        alt: "Teramis — CUI discovery, validation, remediation and monitoring",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Teramis — Know Where Your CUI Actually Lives",
-    description: "Find where CUI actually lives, validate your CUI boundary, and monitor for spillage.",
+    title: "Know where your CUI actually lives.",
+    images: [siteUrl("/opengraph-image")],
   },
 };
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    { "@type": "Organization", name: "Teramis", url: "https://teramis.us/" },
-    {
-      "@type": "SoftwareApplication",
-      name: "Teramis",
-      applicationCategory: "SecurityApplication",
-      operatingSystem: "Web",
-      description: "CUI discovery, boundary validation, remediation, and ongoing monitoring for Defense Industrial Base organizations.",
-      publisher: { "@type": "Organization", name: "Teramis" },
-    },
-  ],
-};
-
 export default function Home() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "Organization", name: "Teramis", url: "https://teramis.us/" },
+      {
+        "@type": "SoftwareApplication",
+        name: "Teramis",
+        applicationCategory: "SecurityApplication",
+        description: "CUI discovery, validation, remediation and monitoring.",
+        publisher: { "@type": "Organization", name: "Teramis" },
+      },
+    ],
+  };
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <Landing />
     </>
   );

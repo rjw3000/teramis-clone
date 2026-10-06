@@ -1,103 +1,70 @@
 "use client";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronRight, Close, Menu, Moon, Sun } from "./icons";
-
-const sectionLinks = [
-  ["Platform", "features"],
-  ["Explorer", "explore"],
-  ["Testimonials", "testimonials"],
-  ["Plans", "pricing"],
-  ["Contact", "contact"],
-];
-
-const routeLinks = [
+export const THEME_KEY = "teramis-dd-theme";
+const links = [
   ["Platform", "/platform"],
+  ["Explorer", "/#explore"],
   ["Solutions", "/solutions"],
   ["Partners", "/partners"],
   ["Resources", "/resources"],
-  ["Company", "/company"],
+  ["Contact", "/contact-us"],
 ];
-
-export const THEME_KEY = "teramis-dd-theme";
-
-export function scrollToId(id: string) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  el.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
-}
-
 export function SiteHeader() {
   const pathname = usePathname();
-  const home = pathname === "/";
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState<string | null>(null);
-
-  useEffect(() => {
-    setTheme(document.documentElement.dataset.theme === "dark" ? "dark" : "light");
-  }, []);
-
+  const toggle = useRef<HTMLButtonElement>(null);
+  const menu = useRef<HTMLDivElement>(null);
+  useEffect(
+    () =>
+      setTheme(
+        document.documentElement.dataset.theme === "dark" ? "dark" : "light",
+      ),
+    [],
+  );
   useEffect(() => setOpen(false), [pathname]);
-
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key !== "Escape") return;
-      e.stopPropagation();
-      setOpen(false);
+    menu.current?.querySelector<HTMLAnchorElement>("a")?.focus();
+    const key = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        toggle.current?.focus();
+      }
     };
-    const onResize = () => window.innerWidth >= 768 && setOpen(false);
-    window.addEventListener("keydown", onKey, true);
-    window.addEventListener("resize", onResize);
+    const resize = () => {
+      if (window.innerWidth >= 1100) setOpen(false);
+    };
+    const outside = (e: PointerEvent) => {
+      if (
+        !menu.current?.contains(e.target as Node) &&
+        !toggle.current?.contains(e.target as Node)
+      )
+        setOpen(false);
+    };
+    document.addEventListener("keydown", key);
+    document.addEventListener("pointerdown", outside);
+    window.addEventListener("resize", resize);
     return () => {
-      window.removeEventListener("keydown", onKey, true);
-      window.removeEventListener("resize", onResize);
+      document.removeEventListener("keydown", key);
+      document.removeEventListener("pointerdown", outside);
+      window.removeEventListener("resize", resize);
     };
   }, [open]);
-
-  useEffect(() => {
-    if (!home || !("IntersectionObserver" in window)) return;
-    const so = new IntersectionObserver(
-      (es) => es.forEach((en) => en.isIntersecting && setActive(en.target.getAttribute("data-section"))),
-      { rootMargin: "-45% 0px -50% 0px" }
-    );
-    document.querySelectorAll("[data-section]").forEach((el) => so.observe(el));
-    return () => so.disconnect();
-  }, [home]);
-
   const toggleTheme = () => {
-    const t = theme === "dark" ? "light" : "dark";
+    const next = theme === "dark" ? "light" : "dark";
     try {
-      localStorage.setItem(THEME_KEY, t);
+      localStorage.setItem(THEME_KEY, next);
     } catch {}
-    document.documentElement.dataset.theme = t;
-    setTheme(t);
+    document.documentElement.dataset.theme = next;
+    setTheme(next);
   };
-
-  const links = home
-    ? sectionLinks.map(([label, id]) => ({
-        label,
-        href: "#" + id,
-        current: active === id,
-        onClick: (e: React.MouseEvent) => {
-          e.preventDefault();
-          setOpen(false);
-          scrollToId(id);
-        },
-      }))
-    : routeLinks.map(([label, href]) => ({
-        label,
-        href,
-        current: pathname === href || pathname.startsWith(href + "/"),
-        onClick: undefined,
-      }));
-
-  const themeLabel = theme === "dark" ? "Use light theme" : "Use dark theme";
-
+  const current = (href: string) =>
+    !href.includes("#") &&
+    (pathname === href || pathname.startsWith(href + "/"));
   return (
     <header className="hdr">
       <div className="wrap hdr-in">
@@ -105,32 +72,62 @@ export function SiteHeader() {
           <img src="/assets/logo.avif" alt="Teramis" width={110} height={34} />
         </Link>
         <nav aria-label="Primary" className="hdr-nav">
-          {links.map((l) => (
-            <Link key={l.label} href={l.href} onClick={l.onClick} className={"hdr-link" + (l.current ? " on" : "")} aria-current={l.current ? "page" : undefined}>
-              {l.label}
+          {links.map(([label, href]) => (
+            <Link
+              key={href}
+              href={href}
+              className={"hdr-link" + (current(href) ? " on" : "")}
+              aria-current={current(href) ? "page" : undefined}
+            >
+              {label}
               <span className="hdr-bar" />
             </Link>
           ))}
         </nav>
         <div className="hdr-tools">
-          <button className="icon-btn" onClick={toggleTheme} aria-label={themeLabel} title={themeLabel}>
+          <button
+            className="icon-btn"
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? "Use light theme" : "Use dark theme"}
+          >
             {theme === "dark" ? <Sun /> : <Moon />}
           </button>
-          <Link className="pill pill-accent hdr-demo" href="/request-a-demo">Request a Demo</Link>
-          <button className="icon-btn hdr-menu" onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-nav">
+          <Link className="pill pill-accent hdr-demo" href="/request-a-demo">
+            Request a Demo
+          </Link>
+          <button
+            ref={toggle}
+            className="icon-btn hdr-menu"
+            onClick={() => setOpen(!open)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+          >
             {open ? <Close /> : <Menu />}
           </button>
         </div>
       </div>
       {open ? (
-        <div id="mobile-nav" className="mnav">
-          {links.map((l) => (
-            <Link key={l.label} href={l.href} onClick={l.onClick} className={"mnav-link" + (l.current ? " on" : "")}>
-              {l.label}
+        <div ref={menu} id="mobile-nav" className="mnav">
+          {links.map(([label, href]) => (
+            <Link
+              key={href}
+              href={href}
+              onClick={() => setOpen(false)}
+              className={"mnav-link" + (current(href) ? " on" : "")}
+              aria-current={current(href) ? "page" : undefined}
+            >
+              {label}
               <ChevronRight />
             </Link>
           ))}
-          <Link className="pill pill-accent mnav-demo" href="/request-a-demo">Request a Demo</Link>
+          <Link
+            className="pill pill-accent mnav-demo"
+            href="/request-a-demo"
+            onClick={() => setOpen(false)}
+          >
+            Request a Demo
+          </Link>
         </div>
       ) : null}
     </header>
