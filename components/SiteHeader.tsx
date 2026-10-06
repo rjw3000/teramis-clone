@@ -2,8 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { ChevronRight, Close, Menu, Moon, Sun } from "./icons";
-export const THEME_KEY = "teramis-dd-theme";
+import { ChevronRight, Close, Menu } from "./icons";
 const links = [
   ["Platform", "/platform"],
   ["Explorer", "/#explore"],
@@ -14,17 +13,9 @@ const links = [
 ];
 export function SiteHeader() {
   const pathname = usePathname();
-  const [theme, setTheme] = useState<"light" | "dark">("light");
   const [open, setOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
   const menu = useRef<HTMLDivElement>(null);
-  useEffect(
-    () =>
-      setTheme(
-        document.documentElement.dataset.theme === "dark" ? "dark" : "light",
-      ),
-    [],
-  );
   useEffect(() => setOpen(false), [pathname]);
   useEffect(() => {
     if (!open) return;
@@ -54,19 +45,12 @@ export function SiteHeader() {
       window.removeEventListener("resize", resize);
     };
   }, [open]);
-  const toggleTheme = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    try {
-      localStorage.setItem(THEME_KEY, next);
-    } catch {}
-    document.documentElement.dataset.theme = next;
-    setTheme(next);
-  };
+
   const current = (href: string) =>
     !href.includes("#") &&
     (pathname === href || pathname.startsWith(href + "/"));
   return (
-    <header className={"hdr" + (pathname === "/" ? " hdr-cinematic" : "")}>
+    <header className="hdr hdr-cinematic">
       <div className="wrap hdr-in">
         <Link href="/" aria-label="Teramis — home" className="hdr-logo">
           <img src="/assets/logo.avif" alt="Teramis" width={110} height={34} />
@@ -85,13 +69,6 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="hdr-tools">
-          <button
-            className="icon-btn"
-            onClick={toggleTheme}
-            aria-label={theme === "dark" ? "Use light theme" : "Use dark theme"}
-          >
-            {theme === "dark" ? <Sun /> : <Moon />}
-          </button>
           <Link className="pill pill-accent hdr-demo" href="/request-a-demo">
             Request a Demo
           </Link>

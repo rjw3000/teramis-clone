@@ -5,9 +5,11 @@ const path = require("node:path");
 const ts = require("typescript");
 const Module = require("node:module");
 const root = path.resolve(__dirname, "..");
-const pages = JSON.parse(
-  fs.readFileSync(path.join(root, "content/pages.json"), "utf8"),
-);
+const pages = [
+  ...JSON.parse(fs.readFileSync(path.join(root, "content/pages.json"), "utf8")),
+  ...require("../content/articles.json"),
+  ...require("../content/guides.json"),
+];
 const paths = new Set(pages.map((p) => p.path));
 function loadTs(name) {
   const filename = path.join(root, name);
@@ -29,6 +31,36 @@ test("every published route has content and one main heading", () => {
     assert(p.parts.length > 0, p.path);
     assert.equal(p.parts.filter((b) => b.tag === "h1").length, 1, p.path);
   }
+});
+
+test("every original sitemap URL and complete blog article has a local route", () => {
+  const manifest = require("../content/migration-manifest.json");
+  for (const url of manifest.originalUrls)
+    assert(paths.has(new URL(url).pathname), url);
+  const articles = require("../content/articles.json");
+  assert.equal(articles.length, 26);
+  for (const article of articles) {
+    assert(article.parts.length > 1, article.path);
+    assert(article.author, article.path);
+    assert(article.readMinutes >= 1, article.path);
+    assert(article.image?.startsWith("/media/articles/"), article.path);
+    assert(
+      fs.existsSync(path.join(root, "public", article.image)),
+      article.image,
+    );
+    for (const part of article.parts.filter((b) => b.tag === "image"))
+      assert(fs.existsSync(path.join(root, "public", part.src)), part.src);
+  }
+  const originalFaqs = pages
+    .find((p) => p.path === "/resources/faqs")
+    .parts.filter((b) => b.tag === "faq");
+  const migratedFaqs = require("../content/guides.json").flatMap((p) =>
+    p.parts.filter((b) => b.tag === "faq"),
+  );
+  assert.deepEqual(
+    new Set(migratedFaqs.map((b) => b.text + b.answer)),
+    new Set(originalFaqs.map((b) => b.text + b.answer)),
+  );
 });
 test("internal content links resolve and imported HTML has only safe formatting", () => {
   for (const p of pages)
@@ -124,6 +156,8 @@ test("guided scenario reaches an unmarked outside-boundary finding", () => {
 });
 test("forms use the published identifiers and the assessment actually receives a form", () => {
   const forms = loadTs("lib/forms.ts");
+  assert.equal(forms.formForPath("/talk-to-us-about-cui"), "assessment");
+  assert.equal(forms.formForPath("/contact-us"), "contact");
   assert.equal(
     forms.formForPath("/cui-discovery-readiness-assessment-teramis"),
     "assessment",

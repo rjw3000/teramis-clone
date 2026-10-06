@@ -1,0 +1,208 @@
+[
+  {
+    "slug": ["resources", "knowledge-base", "getting-started"],
+    "path": "/resources/knowledge-base/getting-started",
+    "title": "Getting started with CUI discovery",
+    "description": "Understand what Teramis discovers, how CUI validation works, and where to start.",
+    "source": "https://teramis.us/resources/faqs",
+    "form": false,
+    "kind": "guide",
+    "category": "Discovery basics",
+    "parts": [
+      {
+        "tag": "h1",
+        "text": "Getting started with CUI discovery"
+      },
+      {
+        "tag": "p",
+        "text": "Answers from the published Teramis FAQs."
+      },
+      {
+        "tag": "faq",
+        "text": "What is Teramis?",
+        "answer": "Teramis is a purpose-built CUI discovery, validation, remediation, reporting, and ongoing monitoring platform. It helps organizations identify potential Controlled Unclassified Information across approved data environments, validate relevant findings, support CUI boundary decisions, remediate approved findings through Remedius, and monitor changes over time."
+      },
+      {
+        "tag": "faq",
+        "text": "Who uses Teramis?",
+        "answer": "Teramis supports defense contractors, enterprise teams, government agencies, compliance advisors, MSPs, MSSPs, GRC providers, and technology partners that need stronger visibility into where CUI exists."
+      },
+      {
+        "tag": "faq",
+        "text": "Does Teramis certify organizations or guarantee compliance?",
+        "answer": "No. Teramis does not perform formal assessments, certify organizations, or guarantee compliance or audit outcomes. Teramis provides discovery findings, validation results, and other evidence that can support NIST SP 800-171 implementation, SPRS self-assessments, scoping, and boundary discussions."
+      },
+      {
+        "tag": "faq",
+        "text": "What is CUI boundary validation?",
+        "answer": "CUI boundary validation compares the organization's documented boundary with findings from its approved data environments. It helps identify systems, repositories, files, or users that may require additional review because the documented boundary and actual CUI footprint do not align."
+      },
+      {
+        "tag": "faq",
+        "text": "What does ongoing monitoring mean?",
+        "answer": "Ongoing monitoring uses recurring scans to identify new CUI findings, movement, potential spillage, and changes to the documented boundary over time. Ongoing monitoring does not necessarily mean constant or real-time surveillance. Scan frequency and coverage depend on the approved deployment and monitoring plan."
+      },
+      {
+        "tag": "faq",
+        "text": "What is CUI spillage?",
+        "answer": "CUI spillage occurs when Controlled Unclassified Information appears in a location, system, repository, or workflow that is not approved for handling it. Teramis can help identify potential spillage, validate the finding, and document its location."
+      },
+      {
+        "tag": "faq",
+        "text": "Is Teramis a replacement for DLP, eDiscovery, GRC, or access-governance tools?",
+        "answer": "No. Teramis is designed to complement existing security, governance, and compliance systems. DLP tools can enforce data-movement policies, access-governance systems can manage permissions, and GRC platforms can organize compliance activity. Teramis adds CUI discovery, validation, and ongoing visibility."
+      },
+      {
+        "tag": "link",
+        "text": "Explore all frequently asked questions",
+        "href": "/resources/faqs"
+      }
+    ]
+  },
+  {
+    "slug": ["resources", "knowledge-base", "deployment-and-data"],
+    "path": "/resources/knowledge-base/deployment-and-data",
+    "title": "Deployment, data sources, and privacy",
+    "description": "Explore supported repositories, required access, deployment boundaries, and how data stays in your environment.",
+    "source": "https://teramis.us/resources/faqs",
+    "form": false,
+    "kind": "guide",
+    "category": "Deployment & privacy",
+    "parts": [
+      {
+        "tag": "h1",
+        "text": "Deployment, data sources, and privacy"
+      },
+      {
+        "tag": "p",
+        "text": "Answers from the published Teramis FAQs."
+      },
+      {
+        "tag": "faq",
+        "text": "What types of data sources can Teramis examine?",
+        "answer": "Supported data sources can include Microsoft 365, file systems, email, endpoints, engineering repositories, CAD files, PDFs, scanned documents, archives, SharePoint, OneDrive, and other approved sources. Exact source coverage, access requirements, and deployment options should be confirmed during technical planning."
+      },
+      {
+        "tag": "faq",
+        "text": "What access does Teramis need?",
+        "answer": "Teramis examines only the environments and data sources your organization expressly authorizes. Scope is defined before discovery begins."
+      },
+      {
+        "tag": "faq",
+        "text": "Does our data leave our environment?",
+        "answer": "Teramis is deployed within the customer's security boundary, so scanning and analysis remain inside the customer-controlled environment. Sensitive files do not need to be uploaded to an external discovery service. A multi-agent architecture supports distributed and complex environments, including situations where data exists across separate repositories, networks, business units, or Microsoft 365 tenants."
+      },
+      {
+        "tag": "link",
+        "text": "Explore all frequently asked questions",
+        "href": "/resources/faqs"
+      }
+    ]
+  },
+  {
+    "slug": ["resources", "knowledge-base", "scoping-and-validation"],
+    "path": "/resources/knowledge-base/scoping-and-validation",
+    "title": "Scoping and boundary validation",
+    "description": "Understand how discovery evidence supports CUI boundary decisions and validates potential findings.",
+    "source": "https://teramis.us/resources/faqs",
+    "form": false,
+    "kind": "guide",
+    "category": "Scoping & validation",
+    "parts": [
+      {
+        "tag": "h1",
+        "text": "Scoping and boundary validation"
+      },
+      {
+        "tag": "p",
+        "text": "Answers from the published Teramis FAQs."
+      },
+      {
+        "tag": "faq",
+        "text": "Does Teramis decide an organization's CUI boundary?",
+        "answer": "No. Teramis provides technical findings and evidence that compliance, security, IT, executive, and advisory teams can use when making boundary decisions. The organization remains responsible for defining and approving the scope of systems that process, store, or transmit CUI."
+      },
+      {
+        "tag": "faq",
+        "text": "Should CUI discovery happen before scoping?",
+        "answer": "CUI discovery provides the evidence needed to define or validate scope. Organizations can use validated findings to make more informed decisions about which systems, users, repositories, applications, and business processes belong within the CUI boundary."
+      },
+      {
+        "tag": "link",
+        "text": "Explore all frequently asked questions",
+        "href": "/resources/faqs"
+      }
+    ]
+  },
+  {
+    "slug": ["resources", "knowledge-base", "partner-engagements"],
+    "path": "/resources/knowledge-base/partner-engagements",
+    "title": "Working with Teramis partners",
+    "description": "Learn how service providers and compliance advisors use Teramis in client engagements.",
+    "source": "https://teramis.us/resources/faqs",
+    "form": false,
+    "kind": "guide",
+    "category": "Partners & engagements",
+    "parts": [
+      {
+        "tag": "h1",
+        "text": "Working with Teramis partners"
+      },
+      {
+        "tag": "p",
+        "text": "Answers from the published Teramis FAQs."
+      },
+      {
+        "tag": "faq",
+        "text": "Can compliance partners use Teramis to support clients?",
+        "answer": "Yes. MSPs, MSSPs, compliance advisors, GRC providers, and other approved partners can use Teramis to strengthen client discovery, boundary validation, ongoing monitoring, and compliance services. Teramis provides technical findings and evidence. Partners apply those findings within the services and guidance they provide."
+      },
+      {
+        "tag": "link",
+        "text": "Explore all frequently asked questions",
+        "href": "/resources/faqs"
+      }
+    ]
+  },
+  {
+    "slug": ["resources", "knowledge-base", "planning-your-engagement"],
+    "path": "/resources/knowledge-base/planning-your-engagement",
+    "title": "Planning your discovery engagement",
+    "description": "Practical answers for planning a Teramis engagement.",
+    "source": "https://teramis.us/resources/faqs",
+    "form": false,
+    "kind": "guide",
+    "category": "Partners & engagements",
+    "parts": [
+      {
+        "tag": "h1",
+        "text": "Planning your discovery engagement"
+      },
+      {
+        "tag": "faq",
+        "text": "How does Teramis help organizations discover CUI?",
+        "answer": "Teramis examines authorized data sources to identify content that may contain CUI. Findings can then be reviewed and validated to distinguish relevant CUI from unrelated content and false positives. This provides a clearer picture of the organization’s actual CUI footprint."
+      },
+      {
+        "tag": "faq",
+        "text": "Does Teramis make the final determination that information is CUI?",
+        "answer": "Teramis identifies and helps validate potential CUI findings. Authorized customer personnel and their advisors remain responsible for final classification, handling, legal, and compliance decisions."
+      },
+      {
+        "tag": "faq",
+        "text": "How does Teramis help reduce false positives?",
+        "answer": "Teramis supports review, validation, and sampling workflows that help teams distinguish relevant CUI from unrelated findings. This helps organizations avoid expanding their CUI scope or acting on unvalidated scan results."
+      },
+      {
+        "tag": "faq",
+        "text": "Can Teramis help after a suspected security incident?",
+        "answer": "Teramis can scan authorized portions of affected systems and repositories to help determine whether CUI may be present. These findings can give counsel, incident response teams, and leadership a stronger factual basis for evaluating potential impact and reporting obligations. Teramis does not perform incident response or digital forensics, determine whether a reportable breach occurred, establish whether data was accessed or exfiltrated, or make legal and notification decisions."
+      },
+      {
+        "tag": "faq",
+        "text": "How accurate is Teramis?",
+        "answer": "Teramis uses review and sampling workflows to help confirm the accuracy of findings and distinguish relevant CUI from unrelated content or false positives. Accuracy depends on the environment, data sources, file types, and scope of the engagement."
+      }
+    ]
+  }
+]

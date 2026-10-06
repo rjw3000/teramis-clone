@@ -30,6 +30,8 @@ const columns: [string, [string, string][]][] = [
       ["Why Teramis", "/company/why-teramis"],
       ["Partners", "/partners"],
       ["Blog", "/teramis-blog"],
+      ["Knowledge base", "/resources/knowledge-base"],
+      ["Resource library", "/resources/library"],
       ["Careers", "/company/careers"],
     ],
   ],

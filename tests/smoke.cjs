@@ -1,7 +1,11 @@
 const assert = require("node:assert/strict");
 const { spawn } = require("node:child_process");
 const path = require("node:path");
-const pages = require("../content/pages.json");
+const pages = [
+  ...require("../content/pages.json"),
+  ...require("../content/articles.json"),
+  ...require("../content/guides.json"),
+];
 const root = path.resolve(__dirname, "..");
 const origin = "http://127.0.0.1:3147";
 const server = spawn(

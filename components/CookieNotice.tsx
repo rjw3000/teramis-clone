@@ -32,13 +32,24 @@ export function CookieNotice() {
 
   if (!open) return null;
   return (
-    <div role="dialog" aria-live="polite" aria-label="Cookie preferences" className="cookie">
+    <div
+      role="dialog"
+      aria-live="polite"
+      aria-label="Cookie preferences"
+      className="cookie"
+    >
       <p>
-        We use essential storage to remember preferences like your theme. With your consent, we may also use analytics to improve the site. See our <Link href="/privacy-policy">Privacy Policy</Link>.
+        We use essential storage to remember your privacy preferences. With your
+        consent, we may also use analytics to improve the site. See our{" "}
+        <Link href="/privacy-policy">Privacy Policy</Link>.
       </p>
       <div className="row-gap">
-        <button className="pill pill-accent" onClick={choose("all")}>Accept all</button>
-        <button className="pill pill-line" onClick={choose("essential")}>Essential only</button>
+        <button className="pill pill-accent" onClick={choose("all")}>
+          Accept all
+        </button>
+        <button className="pill pill-line" onClick={choose("essential")}>
+          Essential only
+        </button>
       </div>
     </div>
   );
@@ -46,7 +57,10 @@ export function CookieNotice() {
 
 export function CookieButton() {
   return (
-    <button className="link-btn" onClick={() => window.dispatchEvent(new Event(OPEN_EVENT))}>
+    <button
+      className="link-btn"
+      onClick={() => window.dispatchEvent(new Event(OPEN_EVENT))}
+    >
       Cookie preferences
     </button>
   );

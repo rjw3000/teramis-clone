@@ -30,7 +30,7 @@ export function LeadForm({ kind = "demo" }: { kind?: FormKind }) {
       script = document.createElement("script");
       script.src = config.legacy
         ? "https://js-na2.hsforms.net/forms/embed/v2.js"
-        : "https://js-na2.hsforms.net/forms/embed/246523533.js";
+        : "https://js-na2.hsforms.net/forms/embed/developer/246523533.js";
       script.async = true;
       script.onerror = () => {
         if (!disposed) {
@@ -75,8 +75,9 @@ export function LeadForm({ kind = "demo" }: { kind?: FormKind }) {
   }, [config, id]);
   return (
     <section className="lead-form card" aria-label={config.title}>
+      <span className="eyebrow">TERAMIS / LET’S TALK</span>
       <h2>{config.title}</h2>
-      <p>
+      <p className="form-intro">
         Tell us about your organization and the decision you need to make.
         Teramis will follow up to confirm fit and next steps.
       </p>
@@ -97,7 +98,7 @@ export function LeadForm({ kind = "demo" }: { kind?: FormKind }) {
       <div
         ref={host}
         id={id}
-        className={config.legacy ? "form-host" : "form-host hs-form-frame"}
+        className={config.legacy ? "form-host" : "form-host hs-form-html"}
         data-region="na2"
         data-form-id={config.id}
         data-portal-id="246523533"
