@@ -26,6 +26,78 @@ function loadTs(name) {
   return mod.exports;
 }
 const explorer = loadTs("lib/explorer.ts");
+test("analytics respects opt-in, revocation, cross-tab changes, and unavailable storage", () => {
+  const previousWindow = global.window;
+  const consent = loadTs("lib/consent.ts");
+  const values = new Map();
+  const browser = new EventTarget();
+  browser.localStorage = {
+    getItem: (key) => values.get(key) ?? null,
+    setItem: (key, value) => values.set(key, value),
+  };
+  const event = { type: "pageview", url: "https://teramis-clone.vercel.app/" };
+  let state = false;
+  let effect;
+  let cleanup;
+  const Analytics = () => null;
+  const filename = path.join(root, "components/ConsentAnalytics.tsx");
+  const mod = new Module(filename, module);
+  mod.filename = filename;
+  mod.paths = module.paths;
+  const originalRequire = mod.require.bind(mod);
+  mod.require = (name) => {
+    if (name === "react") return {
+      useState: () => [state, (value) => { state = value; }],
+      useEffect: (fn) => { effect = fn; },
+    };
+    if (name === "@vercel/analytics/next") return { Analytics };
+    if (name === "../lib/consent") return consent;
+    return originalRequire(name);
+  };
+  mod._compile(ts.transpileModule(fs.readFileSync(filename, "utf8"), {
+    compilerOptions: {
+      module: ts.ModuleKind.CommonJS,
+      target: ts.ScriptTarget.ES2020,
+      jsx: ts.JsxEmit.ReactJSX,
+    },
+  }).outputText, filename);
+  try {
+    delete global.window;
+    assert.equal(consent.filterAnalyticsEvent(event), null);
+    global.window = browser;
+    const render = mod.exports.ConsentAnalytics;
+    assert.equal(render(), null, "No analytics before consent hydration");
+    cleanup = effect();
+    assert.equal(render(), null, "No analytics for an undecided visitor");
+    consent.setCookieConsent("essential");
+    assert.equal(render(), null, "Essential-only blocks SDK mounting");
+    consent.setCookieConsent("all");
+    const mounted = render();
+    assert.equal(mounted.type, Analytics);
+    assert.equal(mounted.props.beforeSend(event), event);
+    consent.setCookieConsent("essential");
+    assert.equal(render(), null, "Revocation unmounts analytics immediately");
+    assert.equal(mounted.props.beforeSend(event), null, "Previously installed callback blocks queued events");
+    values.set(consent.CONSENT_KEY, "all");
+    browser.dispatchEvent(new Event("storage"));
+    assert.equal(render().type, Analytics, "Cross-tab opt-in is applied");
+    values.set(consent.CONSENT_KEY, "essential");
+    browser.dispatchEvent(new Event("storage"));
+    assert.equal(render(), null, "Cross-tab revocation is applied");
+    browser.localStorage.getItem = () => { throw new Error("Storage blocked"); };
+    assert.equal(mounted.props.beforeSend(event), null, "Storage errors fail closed");
+    browser.localStorage.getItem = (key) => values.get(key) ?? null;
+    values.set(consent.CONSENT_KEY, "all");
+    browser.localStorage.setItem = () => { throw new Error("Storage write blocked"); };
+    consent.setCookieConsent("essential");
+    assert.equal(render(), null, "Failed opt-out persistence still unmounts analytics");
+    assert.equal(mounted.props.beforeSend(event), null, "Failed opt-out persistence blocks stale opt-in");
+  } finally {
+    cleanup?.();
+    if (previousWindow === undefined) delete global.window;
+    else global.window = previousWindow;
+  }
+});
 test("every published route has content and one main heading", () => {
   for (const p of pages) {
     assert(p.parts.length > 0, p.path);
